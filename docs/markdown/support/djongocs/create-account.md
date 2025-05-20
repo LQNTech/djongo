@@ -1,4 +1,5 @@
 ---
+permalink: /support/djongocs/create-account/ 
 layout: splash
 classes:
   - empty-banner

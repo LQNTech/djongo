@@ -1,5 +1,6 @@
 ---
 title: Djongo Support
+permalink: /support/request-success/
 layout: splash
 classes:
   - empty-banner

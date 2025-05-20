@@ -1,5 +1,6 @@
+# THIS FILE WAS CHANGED ON - 14 Apr 2022
+
 import abc
-import typing
 from collections import OrderedDict
 from sqlparse import tokens, parse as sqlparse
 from sqlparse.sql import Parenthesis
@@ -276,10 +277,6 @@ class OrderConverter(Converter):
 
     def parse(self):
         tok = self.statement.next()
-        if not tok.match(tokens.Keyword, 'BY'):
-            raise SQLDecodeError
-
-        tok = self.statement.next()
         self.columns.extend(SQLToken.tokens2sql(tok, self.query))
 
     def to_mongo(self):
@@ -328,10 +325,7 @@ class _Tokens2Id:
     def to_id(self):
         _id = {}
         for iden in self.sql_tokens:
-            # if the token is a function then call its to_mongo routine
-            if isinstance(iden, SQLFunc) and iden.alias:
-                _id[iden.alias] = iden.to_mongo()
-            elif iden.column == iden.field:
+            if iden.column == iden.field:
                 _id[iden.field] = f'${iden.field}'
             else:
                 try:
@@ -442,9 +436,6 @@ class GroupbyConverter(Converter, _Tokens2Id):
         super().__init__(*args)
 
     def parse(self):
-        tok = self.statement.next()
-        if not tok.match(tokens.Keyword, 'BY'):
-            raise SQLDecodeError
         tok = self.statement.next()
         self.sql_tokens.extend(SQLToken.tokens2sql(tok, self.query))
 

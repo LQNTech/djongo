@@ -1,5 +1,6 @@
 ---
 title: Djongo Support
+permalink: /support/payment/discord-support/ 
 layout: splash
 classes:
   - empty-banner

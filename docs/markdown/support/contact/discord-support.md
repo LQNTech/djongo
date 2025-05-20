@@ -1,4 +1,5 @@
 ---
+permalink: /support/contact/discord-support/ 
 layout: support-contact
 ---
 

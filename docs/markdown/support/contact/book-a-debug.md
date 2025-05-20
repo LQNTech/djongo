@@ -1,4 +1,5 @@
 ---
+permalink: /support/contact/book-a-debug/ 
 layout: support-contact
 ---
 
